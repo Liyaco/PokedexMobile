@@ -45,6 +45,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    //Navigation
+    implementation ("androidx.navigation:navigation-fragment:2.3.0")
+    implementation ("androidx.navigation:navigation-ui:2.3.0")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("com.google.android.material:material:1.3.0-alpha03")
+
     // Retrofit y su convertidor Gson
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
