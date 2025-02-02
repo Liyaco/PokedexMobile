@@ -13,20 +13,4 @@
         android:textStyle="bold"
         android:text="Tipo:"/>
 
-    <TextView
-        android:id="@+id/habilidadTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Habilidad:"/>
-
-    <TextView
-        android:id="@+id/estadisticaTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Estadística:"/>
-
 </LinearLayout>

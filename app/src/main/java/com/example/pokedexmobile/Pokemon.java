@@ -6,9 +6,9 @@ class Pokemon {
     private int number;
     private String name;
     private String url;
-    private List<Tipo> type;
-    private List<Habilidad> abilities;
-    private List<Tipo> stats;
+    List<Tipo> type;
+    List<Habilidad> abilities;
+    List<Estadistica> stats;
     public String getName() { return name; }
     public String getUrl() { return url; }
     public int getNumber() {

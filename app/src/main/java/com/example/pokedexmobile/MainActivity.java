@@ -1,43 +1,28 @@
 package com.example.pokedexmobile;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 import com.example.pokedexmobile.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private ListaPokemonAdapter listaPokemonAdapter;
-    private PokeViewModel pokeViewModel;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
 
-        listaPokemonAdapter = new ListaPokemonAdapter();
-        binding.recyclerView.setAdapter(listaPokemonAdapter);
-        GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
-        binding.recyclerView.setLayoutManager(layoutManager);
-
-        pokeViewModel = new ViewModelProvider(this).get(PokeViewModel.class);
-        pokeViewModel.getPokemonList().observe(this, pokemons -> {
-            listaPokemonAdapter.añadirListaPokemon(pokemons);
-        });
-
-        binding.recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if (!recyclerView.canScrollVertically(1)) {
-                    pokeViewModel.fetchPokemon();
-                }
-            }
-        });
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.mainActivityFragment, new MainActivityFragment())
+                    .commit();
+        }
     }
 }

@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/mainActivityFragment">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.pokedexmobile.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/pokemonDetailFragment"
         android:name="com.example.pokedexmobile.PokemonDetailFragment"
         android:label="fragment_pokemon_detail"
         tools:layout="@layout/fragment_pokemon_detail" />
     <action
-        android:id="@+id/mainActivity_to_pokemonDetailFragment"
-        app:destination="@+id/action_mainFragment_to_pokemonDetailFragment"/>
+        android:id="@+id/action_mainFragment_to_pokemonDetailFragment"
+        app:destination="@id/pokemonDetailFragment"/>
+    <fragment
+        android:id="@+id/mainActivityFragment"
+        android:name="com.example.pokedexmobile.MainActivityFragment"
+        android:label="fragment_main_activity"
+        tools:layout="@layout/fragment_main_activity" />
 </navigation>
